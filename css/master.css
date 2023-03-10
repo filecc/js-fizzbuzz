@@ -8,13 +8,14 @@ body {
     color: black;
     background-color: white;
     text-align: center;
+    background-color: #99CCB6;
 }
 
 .wrapper {
     margin: 0 auto;
     max-width: 450px;
     min-height: 400px;
-    background-color: white;
+   
 }
 
 button {
@@ -22,63 +23,62 @@ button {
 }
 
 .normal {
-    background-color: #eeeeee;
+    background-color: #467E8B;
 }
 
 .animation {
-    animation-name: normal;
-    animation-duration: .5s;
+    animation-name: animated;
+    animation-duration: .3s;
     animation-fill-mode: forwards;
-    animation-delay: 0.2s;
+    animation-delay: 0s;
 }
 
 .box {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     font-weight: bold;
     border-radius: 5px;
-    justify-content: center;
     flex-shrink: 0;
     flex-grow: 0;
+    min-width: 60px;
+    max-width: 60px;
+    transition: all 1s;
 }
 
-.delay {
-    animation-delay: 1s;
-}
 
 .fizz,
 .buzz,
 .fizzBuzz {
     font-weight: normal;
     border-radius: 5px;
-
+    color: white;
 }
 
 .fizzBuzz {
-    background-color: gold;
+    background: linear-gradient(#CDC65A,#583C54 );
     font-weight: normal;
+  
 }
 
 .fizz {
-    background-color: red;
+    background-color: #CDC65A;
+   
 }
 
 .buzz {
-    background-color: green;
+    background-color: #583C54;
 }
 
-@keyframes normal {
+@keyframes animated {
     0% {
         width: 0;
         height: 0;
-
     }
 
     100% {
-        min-width: 60px;
-        min-height: 60px;
-
-
+        width: 60px;
+        height: 60px;
     }
 }

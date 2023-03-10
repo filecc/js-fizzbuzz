@@ -15,16 +15,18 @@ play.addEventListener('click', () => {
     replay.disabled = true;
     const newItem = document.createElement('div');
     newItem.classList.add(`item${elementCreated + 1}`);
+    newItem.classList.add('animation');
     newItem.classList.add('col');
     newItem.classList.add('box');
-    newItem.classList.add('animation');
+    
+
     wrapper.appendChild(newItem);
     elementCreated += 1;
 
     // listener per rilevare la fine dell'animazione
     newItem.addEventListener('animationend', () => {
        
-      if (elementCreated < 100) {
+      if (elementCreated <= 100) {
         if ((elementCreated % 3 === 0) && (elementCreated % 5 === 0)){
             newItem.classList.add('fizzBuzz');
             newItem.innerHTML = `
