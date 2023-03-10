@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    color: black;
+    background-color: white;
+    text-align: center;
+}
+
+.wrapper {
+    margin: 0 auto;
+    max-width: 450px;
+    min-height: 400px;
+    background-color: white;
+}
+
+button {
+    max-width: 60px;
+}
+
+.normal {
+    background-color: #eeeeee;
+}
+
+.animation {
+    animation-name: normal;
+    animation-duration: .5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+    border-radius: 5px;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+}
+
+.delay {
+    animation-delay: 1s;
+}
+
+.fizz,
+.buzz,
+.fizzBuzz {
+    font-weight: normal;
+    border-radius: 5px;
+
+}
+
+.fizzBuzz {
+    background-color: gold;
+    font-weight: normal;
+}
+
+.fizz {
+    background-color: red;
+}
+
+.buzz {
+    background-color: green;
+}
+
+@keyframes normal {
+    0% {
+        width: 0;
+        height: 0;
+
+    }
+
+    100% {
+        min-width: 60px;
+        min-height: 60px;
+
+
+    }
+}
