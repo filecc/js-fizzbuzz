@@ -76,3 +76,12 @@ switcher.addEventListener('click', () => {
   input.classList.toggle('dark-input');
   document.querySelector('h1').classList.toggle('light');
 })
+
+/* fixing window height on iPhone */
+
+const appHeight = () => {
+  const doc = document.documentElement
+  doc.style.setProperty('--app-height', `${window.innerHeight}px`)
+}
+window.addEventListener('resize', appHeight)
+appHeight()
