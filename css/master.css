@@ -75,6 +75,8 @@
   .start,
   .play,
   .restart {
+    width: 3rem;
+    height: 3rem;
     font-size: 3rem;
     border: none;
     border-radius: 50%;
@@ -100,8 +102,6 @@
   }
   
   .restart {
-    width: 3rem;
-    height: 3rem;
     color: gold;
     display: flex;
     justify-content: center;
