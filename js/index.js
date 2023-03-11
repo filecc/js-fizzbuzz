@@ -24,8 +24,8 @@ function createItem() {
 
     const display = document.createElement('span');
     square.appendChild(display);
-
     display.innerHTML = text;
+    
     createItem();
     toBeCreated += 1;
     if (toBeCreated == numberOfBoxs) {
@@ -40,6 +40,7 @@ const play = document.querySelector('.play');
 const restartBox = document.querySelector('.restartBox');
 
 const start = document.querySelector('.start');
+
 start.addEventListener('click', () => {
   start.classList.toggle('hidden');
   inputBox.classList.toggle('hidden');
