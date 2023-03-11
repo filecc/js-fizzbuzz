@@ -30,6 +30,7 @@
   
   main {
     height: 100vh;
+    position: relative;
   }
   h1, .inputBox {
     text-align: center;
