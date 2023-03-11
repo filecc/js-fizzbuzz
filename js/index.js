@@ -49,6 +49,7 @@ start.addEventListener('click', () => {
     if (input.value > 150) {
       input.value = 150;
       play.classList.remove('hidden');
+      play.classList.add('fromHidden')
     } else if (input.value < 3) {
       play.classList.add('hidden');
     } else {
@@ -60,10 +61,5 @@ start.addEventListener('click', () => {
     numberOfBoxs = input.value;
     inputBox.classList.add('hidden');
     createItem();
-
-    restart.addEventListener('click', () => {
-      restartBox.classList.add('hidden');
-      start.classList.toggle('hidden');
-    });
   });
 });

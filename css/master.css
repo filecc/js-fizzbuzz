@@ -1,6 +1,7 @@
 * {
     box-sizing: border-box;
   }
+ 
   
   body {
     margin: 0;
@@ -8,12 +9,17 @@
     color: black;
     background-color: white;
   }
+  body, 
+  main, 
+  .inputBox,
+  .restartBox  {
+    width: 100%;
+  }
   
   main {
-    width: 100%;
     height: 100vh;
   }
-  h1 {
+  h1, .inputBox {
     text-align: center;
   }
   h1 + div {
@@ -28,10 +34,6 @@
   }
   .hidden {
     display: none;
-  }
-  .inputBox {
-    width: 100%;
-    text-align: center;
   }
   input {
     width: 7rem;
@@ -50,7 +52,6 @@
     -webkit-appearance: none;
     margin: 0;
   }
-  
   /* Firefox */
   input[type='number'] {
     -moz-appearance: textfield;
@@ -81,9 +82,6 @@
     animation-name: fizzBuzz;
     animation-duration: 0.3s;
     animation-iteration-count: infinite;
-  }
-  .restartBox {
-    width: 100%;
   }
   
   .restart {
@@ -157,6 +155,7 @@
     animation-fill-mode: forwards;
   }
   
+
   @keyframes appearing {
     0% {
       width: 0;
@@ -167,16 +166,7 @@
       height: 5rem;
     }
   }
-  
-  @keyframes textAppear {
-    0% {
-      font-size: 0;
-    }
-    100% {
-      font-size: 1rem;
-    }
-  }
-  
+
   @keyframes fizzBuzz {
     0% {
       width: 5rem;
@@ -197,4 +187,9 @@
       background-position: left center;
     }
   }
-  
+
+  @media screen and (min-width: 990px){
+    #app {
+        max-width: 57rem;
+      }
+  }
