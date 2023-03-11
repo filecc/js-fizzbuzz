@@ -25,7 +25,7 @@ function createItem() {
     const display = document.createElement('span');
     square.appendChild(display);
     display.innerHTML = text;
-    
+
     createItem();
     toBeCreated += 1;
     if (toBeCreated == numberOfBoxs) {
@@ -64,3 +64,15 @@ start.addEventListener('click', () => {
     createItem();
   });
 });
+
+
+/* DARK MODE */
+const switcher = document.querySelector('#switch button');
+switcher.addEventListener('click', () => {
+  switcher.classList.toggle('sun');
+  switcher.classList.toggle('moon');
+  document.querySelector('body').classList.toggle('dark');
+  inputBox.classList.toggle('light');
+  input.classList.toggle('dark-input');
+  document.querySelector('h1').classList.toggle('light');
+})

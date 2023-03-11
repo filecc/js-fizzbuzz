@@ -8,6 +8,18 @@
     font-family: system-ui, sans-serif;
     color: black;
     background-color: white;
+    transition: all .3;
+  }
+
+  .dark{
+    background-color: #303030;
+  }
+  .dark-input{
+    background-color: #505050;
+    color: white;
+  }
+  .light{
+    color: white;
   }
   body, 
   main, 
@@ -40,11 +52,13 @@
     border: none;
     margin: 0 auto;
     background-color: #eee;
+    color: black;
     border-radius: 5px;
     padding: 1rem 1rem;
     text-align: center;
     font-size: 2rem;
   }
+
   
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
@@ -110,10 +124,11 @@
     gap: 1rem;
     border-radius: 5px;
   }
-  
+
   #app.show {
     padding: 1rem 1rem;
   }
+ 
   
   a {
     color: inherit;
@@ -192,4 +207,53 @@
     #app {
         max-width: 57rem;
       }
+  }
+
+  /* DARK MODE */
+  #toggleContainer{
+    position: absolute;
+    right: 5%;
+    top: 2%;
+  }
+
+  #switch{
+    background-color: #bbb;
+    padding: 1rem 1.75rem;
+    border-radius: 20px;
+    position: relative;
+  }
+
+  #switch button {
+    background-color: none;
+    border: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    padding: .5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .5s;
+  }
+
+  .sun{
+    background-color: #f9e262;
+    right: 0;
+    left: 50%;
+  }
+  .sun:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f185";
+  }
+
+  .moon{
+    background-color: #eee;
+    left: 0;
+    right: 50%;
+  }
+
+  .moon:after{
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f186";
   }
