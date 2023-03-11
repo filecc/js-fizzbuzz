@@ -67,15 +67,30 @@ start.addEventListener('click', () => {
 
 
 /* DARK MODE */
-const switcher = document.querySelector('#switch button');
-switcher.addEventListener('click', () => {
+
+function changeColor () {
   switcher.classList.toggle('sun');
   switcher.classList.toggle('moon');
   document.querySelector('body').classList.toggle('dark');
   inputBox.classList.toggle('light');
   input.classList.toggle('dark-input');
   document.querySelector('h1').classList.toggle('light');
+}
+
+const switcher = document.querySelector('#switch button');
+
+//liste to input in toggle button
+switcher.addEventListener('click', () => {
+  changeColor();
 })
+
+// check if the user use dark modo on his devide, if not changeColor() is fired
+window.matchMedia('(prefers-color-scheme: dark)').matches && changeColor();
+
+//liste to the change for preferred color
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      changeColor();
+    });
 
 /* fixing window height on iPhone */
 
