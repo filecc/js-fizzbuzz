@@ -1,90 +1,201 @@
 * {
     box-sizing: border-box;
-}
-
-body {
+  }
+  
+  body {
     margin: 0;
     font-family: system-ui, sans-serif;
     color: black;
     background-color: white;
-    text-align: center;
-    background-color: #99CCB6;
-}
-
-main {
-    width: 100%;
+  }
+  
+  main {
+    min-width: 100%;
     height: 100vh;
-}
-
-.wrapper {
-    margin: 0 auto;
-    max-width: 450px;
-    min-height: 400px;
-   
-}
-
-button {
-    max-width: 120px;
-
-}
-
-.normal {
-    background-color: #467E8B;
-}
-
-.animation {
-    animation-name: animated;
-    animation-duration: .3s;
-    animation-fill-mode: forwards;
-    animation-delay: 0s;
-}
-
-.box {
+  }
+  h1 {
+    text-align: center;
+  }
+  h1 + div {
+    padding: 2rem;
+    display: flex;
+  }
+  .flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    gap: 1rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .inputBox {
+    width: 100%;
+    text-align: center;
+  }
+  input {
+    width: 7rem;
+    border: none;
+    margin: 0 auto;
+    background-color: #eee;
     border-radius: 5px;
-    flex-shrink: 0;
-    flex-grow: 0;
-    min-width: 60px;
-    max-width: 60px;
-    transition: all 1s;
-}
-
-
-.fizz,
-.buzz,
-.fizzBuzz {
-    font-weight: normal;
-    border-radius: 5px;
-    color: white;
-}
-
-.fizzBuzz {
-    background: linear-gradient(#CDC65A,#583C54 );
-    font-weight: normal;
+    padding: 1rem 1rem;
+    text-align: center;
+    font-size: 2rem;
+  }
   
-}
-
-.fizz {
-    background-color: #CDC65A;
-   
-}
-
-.buzz {
-    background-color: #583C54;
-}
-
-@keyframes animated {
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+  
+  .start,
+  .play,
+  .restart {
+    font-size: 3rem;
+    border: none;
+    border-radius: 50%;
+    margin: 0 auto;
+    box-shadow: none;
+    background: linear-gradient(#ffffff, #ffffff);
+    color: #9198e5;
+    transition: all 1s;
+  }
+  .start:hover,
+  .play:hover {
+    background: linear-gradient(#e66465, #9198e5);
+    box-shadow: 1px 0px 10px 2px #ccc;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .start.fbAnimation,
+  .play.fbAnimation {
+    animation-name: fizzBuzz;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+  }
+  .restartBox {
+    width: 100%;
+  }
+  
+  .restart {
+    width: 3rem;
+    height: 3rem;
+    color: gold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .restart:hover {
+    cursor: pointer;
+    box-shadow: 1px 0px 10px 2px #ccc;
+  }
+  
+  #app {
+    background-color: #eee;
+    max-width: 19rem;
+    max-height: 50vh;
+    overflow: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    border-radius: 5px;
+  }
+  
+  #app.show {
+    padding: 1rem 1rem;
+  }
+  
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  
+  .box {
+    display: grid;
+    place-items: center;
+    border-radius: 5px;
+    box-shadow: 1px 0px 10px 2px #ccc;
+    background-color: #f6f3e3;
+  }
+  
+  .box.appearing {
+    animation-name: appearing;
+    animation-duration: 0.4s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  
+  .fizzBuzz {
+    background: linear-gradient(#e66465, #9198e5);
+    color: white;
+  }
+  
+  .box.fizz {
+    background-color: #e66465;
+    color: white;
+  }
+  .box.buzz {
+    background-color: #9198e5;
+    color: white;
+  }
+  .fizzBuzz.fbAnimation {
+    animation-name: fizzBuzz;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+  }
+  
+  @keyframes appearing {
     0% {
-        width: 0;
-        height: 0;
+      width: 0;
+      height: 0;
     }
-
     100% {
-        width: 60px;
-        height: 60px;
+      width: 5rem;
+      height: 5rem;
     }
-}
+  }
+  
+  @keyframes textAppear {
+    0% {
+      font-size: 0;
+    }
+    100% {
+      font-size: 1rem;
+    }
+  }
+  
+  @keyframes fizzBuzz {
+    0% {
+      width: 5rem;
+      height: 5rem;
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+    50% {
+      width: 5rem;
+      height: 5rem;
+      background-size: 200% 200%;
+      background-position: right bottom;
+    }
+    100% {
+      width: 5rem;
+      height: 5rem;
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+  }
+  

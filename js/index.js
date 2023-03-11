@@ -1,72 +1,69 @@
-const play = document.querySelector('h1 + button');
+const app = document.getElementById('app');
+let numberOfBoxs = 0;
+let toBeCreated = 1;
+const restart = document.querySelector('.restart');
 
-play.addEventListener('click', () => {
-  play.classList.toggle('d-none');
+function createItem() {
+  app.classList.add('show');
+  const square = document.createElement('div');
+  square.classList.add('box');
+  square.classList.add('appearing');
+  toBeCreated < numberOfBoxs && app.appendChild(square);
 
-  const wrapper = document.querySelector('.wrapper');
-  const replay = document.querySelector('button.replay');
+  square.addEventListener('animationend', () => {
+    let text = toBeCreated;
 
-  replay.classList.toggle('d-none');
-  replay.disabled = true;
+    toBeCreated % 15 === 0
+      ? ((text = 'FizzBuzz'),
+        square.classList.add('fizzBuzz'),
+        square.classList.add('fbAnimation'))
+      : toBeCreated % 3 === 0
+      ? ((text = 'Fizz'), square.classList.add('fizz'))
+      : toBeCreated % 5 === 0 &&
+        ((text = 'Buzz'), square.classList.add('buzz'));
 
-  let elementCreated = 0;
+    const display = document.createElement('span');
+    square.appendChild(display);
 
-  function createItem() {
-    replay.disabled = true;
-    const newItem = document.createElement('div');
-    newItem.classList.add(`item${elementCreated + 1}`);
-    newItem.classList.add('animation');
-    newItem.classList.add('col');
-    newItem.classList.add('box');
-    
+    display.innerHTML = text;
+    createItem();
+    toBeCreated += 1;
+    if (toBeCreated == numberOfBoxs) {
+      restartBox.classList.toggle('hidden');
+    }
+  });
+}
 
-    wrapper.appendChild(newItem);
-    elementCreated += 1;
+const inputBox = document.querySelector('.inputBox');
+const input = document.querySelector('input[name="numberBox');
+const play = document.querySelector('.play');
+const restartBox = document.querySelector('.restartBox');
 
-    // listener per rilevare la fine dell'animazione
-    newItem.addEventListener('animationend', () => {
-       
-      if (elementCreated <= 100) {
-        if ((elementCreated % 3 === 0) && (elementCreated % 5 === 0)){
-            newItem.classList.add('fizzBuzz');
-            newItem.innerHTML = `
-                <span>FIZZ</span>
-                <span>BUZZ</span>       
-            `;
-            
-        } else if (elementCreated % 3 === 0){
-            newItem.classList.add('fizz');
-            newItem.innerHTML = `
-                <span>FIZZ</span>    
-            `;
-        } else if (elementCreated % 5 === 0) {
-            newItem.classList.add('buzz');
-            newItem.innerHTML = `
-                <span>BUZZ</span>    
-            `;
-        } else {
-            newItem.classList.add('normal');
-            newItem.innerHTML = `
-                <span>${elementCreated}</span>    
-            `;
-        }
-        
-        // Se ci sono ancora quadratini da creare, creiamo il prossimo
-        createItem();
-      } else {
-        // Altrimenti, abilitiamo il pulsante replay
-        replay.disabled = false;
-      }
+const start = document.querySelector('.start');
+start.addEventListener('click', () => {
+  start.classList.toggle('hidden');
+  inputBox.classList.toggle('hidden');
+  play.classList.toggle('hidden');
+
+  input.addEventListener('input', () => {
+    if (input.value > 150) {
+      input.value = 150;
+      play.classList.remove('hidden');
+    } else if (input.value < 3) {
+      play.classList.add('hidden');
+    } else {
+      play.classList.remove('hidden');
+    }
+  });
+
+  play.addEventListener('click', () => {
+    numberOfBoxs = input.value;
+    inputBox.classList.add('hidden');
+    createItem();
+
+    restart.addEventListener('click', () => {
+      restartBox.classList.add('hidden');
+      start.classList.toggle('hidden');
     });
-  }
-
-  // Avviamo la creazione dei quadratini
-  createItem();
-
-  replay.addEventListener('click', () => {
-    play.classList.toggle('d-none');
-    replay.classList.toggle('d-none');
-    play.disabled = false;
-    wrapper.innerHTML = '';
   });
 });
