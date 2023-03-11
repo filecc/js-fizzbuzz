@@ -17,7 +17,7 @@
     text-align: center;
   }
   h1 + div {
-    padding: 2rem;
+    padding: 2rem 0;
     display: flex;
   }
   .flex {
@@ -25,7 +25,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
   }
   .hidden {
     display: none;
