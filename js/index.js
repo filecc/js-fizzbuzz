@@ -117,6 +117,13 @@ start.addEventListener("click", () => {
 function changeColor() {
   switcher.classList.toggle("sun");
   switcher.classList.toggle("moon");
+  if (switcher.classList.contains('moon')){
+    app.style.backgroundColor = '#262626'
+    doc.style.setProperty("--boxShadow", '1px 0px 10px 2px #222222');
+  } else {
+    app.style.backgroundColor = '#eee';
+    doc.style.setProperty("--boxShadow", '1px 0px 10px 2px #ccc');
+  }
   document.querySelector("body").classList.toggle("dark");
   inputBox.classList.toggle("light");
   input.classList.toggle("dark-input");
