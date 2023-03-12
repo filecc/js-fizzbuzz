@@ -79,15 +79,15 @@ function changeColor () {
 
 const switcher = document.querySelector('#switch button');
 
-//liste to input in toggle button
+//listen to input in toggle button
 switcher.addEventListener('click', () => {
   changeColor();
 })
 
-// check if the user use dark modo on his devide, if not changeColor() is fired
+// check if the user use dark mode on his device, if not changeColor() is fired
 window.matchMedia('(prefers-color-scheme: dark)').matches && changeColor();
 
-//liste to the change for preferred color
+//listen to the change for preferred color
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
       changeColor();
     });
