@@ -4,6 +4,7 @@
 
   :root {
     --app-height: 100%;
+    --appDiv: 100%;
  }
  
   
@@ -129,6 +130,7 @@
     justify-content: center;
     gap: 1rem;
     border-radius: 5px;
+    position: relative;
   }
 
   #app.show {
@@ -147,11 +149,14 @@
     border-radius: 5px;
     box-shadow: 1px 0px 10px 2px #ccc;
     background-color: #f6f3e3;
+    font-family: 'Bangers', cursive;
+    font-size: 2.5rem;
+    text-align: center;
   }
   
   .box.appearing {
     animation-name: appearing;
-    animation-duration: 0.4s;
+    animation-duration: 0.3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
@@ -159,19 +164,27 @@
   .fizzBuzz {
     background: linear-gradient(#e66465, #9198e5);
     color: white;
+    font-family: 'Bangers', cursive;
+    word-wrap:break-word;
+    text-align: center;
+    font-size: 2rem;
   }
   
   .box.fizz {
     background-color: #e66465;
     color: white;
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
   }
   .box.buzz {
     background-color: #9198e5;
     color: white;
+    font-family: 'Bangers', cursive;
+    font-size: 2rem;
   }
   .fizzBuzz.fbAnimation {
     animation-name: fizzBuzz;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
     animation-iteration-count: infinite;
     animation-fill-mode: forwards;
   }
@@ -187,7 +200,6 @@
       height: 5rem;
     }
   }
-
   @keyframes fizzBuzz {
     0% {
       width: 5rem;
@@ -214,6 +226,25 @@
         max-width: 57rem;
       }
   }
+
+/* progress bar */
+
+  #progress {
+    width: 0%;
+    height: 6px;
+    background: linear-gradient(to right, #e66465, #9198e5);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    justify-self: flex-start;
+    transition: all .5s;
+  }
+
+  #progressContainer{
+   width: 100%;
+   margin-right: .5rem;
+  }
+
 
   /* DARK MODE */
   #toggleContainer{
